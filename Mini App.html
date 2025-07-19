@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Cripto Agresivo - Julio 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #4a148c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #6a1b9a;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    input[type="number"] {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Portafolio Cripto Agresivo - Julio 2025</h1>
+  <p>Simula tu inversión ingresando una cantidad inicial:</p>
+  <input type="number" id="investment" value="1000"> USD
+  <button onclick="updatePortfolio()">Actualizar</button>
+  <br><br>
+  <table id="portfolio">
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Categoría</th>
+        <th>%</th>
+        <th>Monto (USD)</th>
+        <th>Razón</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-percent="15"><td>FET</td><td>IA + DePIN</td><td>15%</td><td class="amount"></td><td>IA con gran potencial, posible fusión con AGIX/OCEAN</td></tr>
+      <tr data-percent="15"><td>TIA</td><td>Blockchain Modular</td><td>15%</td><td class="amount"></td><td>Proyecto base en arquitectura modular</td></tr>
+      <tr data-percent="10"><td>ARB</td><td>Infraestructura L2</td><td>10%</td><td class="amount"></td><td>Alto uso en DeFi y escalado de Ethereum</td></tr>
+      <tr data-percent="10"><td>LINK</td><td>Oráculos</td><td>10%</td><td class="amount"></td><td>Adopción institucional creciente</td></tr>
+      <tr data-percent="10"><td>MATIC</td><td>Escalado</td><td>10%</td><td class="amount"></td><td>Red sólida, con apoyo empresarial</td></tr>
+      <tr data-percent="10"><td>PEPE/WIF</td><td>Memecoin</td><td>10%</td><td class="amount"></td><td>Alto riesgo, alto rendimiento</td></tr>
+      <tr data-percent="10"><td>AGIX/OCEAN</td><td>IA</td><td>10%</td><td class="amount"></td><td>Asociación con FET, potencial de fusión</td></tr>
+      <tr data-percent="10"><td>DOT/ATOM</td><td>Interoperabilidad</td><td>10%</td><td class="amount"></td><td>Conectividad entre blockchains</td></tr>
+      <tr data-percent="5"><td>ILV/GALA</td><td>Gaming & NFT</td><td>5%</td><td class="amount"></td><td>Gaming cripto repuntando</td></tr>
+      <tr data-percent="5"><td>ETH</td><td>Base estable</td><td>5%</td><td class="amount"></td><td>Liquidez y staking seguro</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    function updatePortfolio() {
+      const investment = parseFloat(document.getElementById('investment').value);
+      const rows = document.querySelectorAll('#portfolio tbody tr');
+      rows.forEach(row => {
+        const percent = parseFloat(row.getAttribute('data-percent'));
+        const amount = (investment * percent / 100).toFixed(2);
+        row.querySelector('.amount').innerText = `$${amount}`;
+      });
+    }
+    window.onload = updatePortfolio;
+  </script>
+</body>
+</html>
